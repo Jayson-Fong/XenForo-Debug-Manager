@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="jayson_DGM" title="[JF] Debug Manager" version_string="1.0.0" version_id="1" url="https://jaysonfong.me/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions>
+    <admin_permission admin_permission_id="modifyDebugModeState" display_order="1"/>
+  </admin_permissions>
+  <admin_style_properties/>
+  <admin_templates>
+    <template title="jayson_dgm_options"><![CDATA[<form action="{xen:adminlink 'tools/debug-toggle'}" class="xenForm formOverlay section AutoValidator" method="post" data-redirect="true">
+	<div class="section">
+		<div class="secondaryContent">
+			<h3 class="textHeading">{xen:phrase jayson_dgm_debug_manager}</h3>
+			<div class="statsBlock">
+				<label id="ctrl_debug_public"> <input type="checkbox" class="SubmitOnChange" {xen:checked {$debugStatus.public}} id="ctrl_debug_public" name="debug_public" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_public}</span> </label><br />
+                		<label id="ctrl_debug_admin"> <input type="checkbox" class="SubmitOnChange" {xen:checked {$debugStatus.admin}} id="ctrl_debug_admin" name="debug_admin" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_admin}</span> </label><br />
+			</div>
+		</div>
+	</div>
+	<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+</form>]]></template>
+  </admin_templates>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="init_dependencies" execute_order="10" callback_class="jayson_DGM_Listener" callback_method="initDependencies" active="1" hint="" description=""/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="jayson_DGM_Listener" callback_method="Listen" active="1" hint="XenForo_ControllerAdmin_Tools" description=""/>
+    <listener event_id="load_class_controller" execute_order="10" callback_class="jayson_DGM_Listener" callback_method="Listen" active="1" hint="XenForo_ControllerAdmin_Home" description=""/>
+    <listener event_id="template_hook" execute_order="10" callback_class="jayson_DGM_Listener" callback_method="templateHook" active="1" hint="" description=""/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups/>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="admin_permission_modifyDebugModeState" version_id="1" version_string="1.0.0"><![CDATA[Modify Debug Mode Status]]></phrase>
+    <phrase title="jayson_dgm_debug_admin" version_id="1" version_string="1.0.0"><![CDATA[Enable Debug Mode (Admin)]]></phrase>
+    <phrase title="jayson_dgm_debug_manager" version_id="1" version_string="1.0.0"><![CDATA[Debug Manager]]></phrase>
+    <phrase title="jayson_dgm_debug_public" version_id="1" version_string="1.0.0"><![CDATA[Enable Debug Mode (Public)]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates/>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
