@@ -38,9 +38,9 @@
   </permissions>
   <phrases>
     <phrase title="admin_permission_modifyDebugModeState" version_id="1" version_string="1.0.0"><![CDATA[Modify Debug Mode Status]]></phrase>
-    <phrase title="jayson_dgm_debug_admin" version_id="1" version_string="1.0.0"><![CDATA[Enable Debug Mode (Admin)]]></phrase>
+    <phrase title="jayson_dgm_debug_admin" version_id="1" version_string="1.0.0"><![CDATA[Disable Debug Mode (Admin)]]></phrase>
     <phrase title="jayson_dgm_debug_manager" version_id="1" version_string="1.0.0"><![CDATA[Debug Manager]]></phrase>
-    <phrase title="jayson_dgm_debug_public" version_id="1" version_string="1.0.0"><![CDATA[Enable Debug Mode (Public)]]></phrase>
+    <phrase title="jayson_dgm_debug_public" version_id="1" version_string="1.0.0"><![CDATA[Disable Debug Mode (Public)]]></phrase>
   </phrases>
   <route_prefixes/>
   <style_properties/>
