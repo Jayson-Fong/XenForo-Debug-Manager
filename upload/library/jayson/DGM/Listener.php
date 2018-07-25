@@ -5,7 +5,7 @@ class jayson_DGM_Listener {
 	}
     public static function initDependencies(XenForo_Dependencies_Abstract $dependencies, array $data) {
         $debugModeStatus = XenForo_Application::getSimpleCacheData('debugModeStatus');
-        if (!$debugModeStatus['restrict'] || (is_array($debugModeStatus['registeredIps']) && in_array($_SERVER['REMOTE_ADDR'], $debugModeStatus['registeredIps']))) {
+        if (!$debugModeStatus['restrict'] || (is_array($debugModeStatus['registeredIps']) && (!empty($_SERVER['REMOTE_ADDR']) && in_array($_SERVER['REMOTE_ADDR'], $debugModeStatus['registeredIps'])))) {
             if ($debugModeStatus['public'] && $dependencies instanceof XenForo_Dependencies_Public) {
                 XenForo_Application::setDebugMode(true);
             } elseif ($debugModeStatus['admin'] && $dependencies instanceof XenForo_Dependencies_Admin) {
