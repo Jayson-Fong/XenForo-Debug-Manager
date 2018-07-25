@@ -4,9 +4,10 @@ class jayson_DGM_Listener {
 		$extend[] = 'jayson_DGM_Extend_'.$class;
 	}
     public static function initDependencies(XenForo_Dependencies_Abstract $dependencies, array $data) {
-        if (XenForo_Application::getSimpleCacheData('debugPublic') && $dependencies instanceof XenForo_Dependencies_Public) {
+        $debugModeStatus = XenForo_Application::getSimpleCacheData('debugModeStatus');
+        if ($debugModeStatus['public'] && $dependencies instanceof XenForo_Dependencies_Public) {
             XenForo_Application::setDebugMode(true);
-        } elseif (XenForo_Application::getSimpleCacheData('debugAdmin') && $dependencies instanceof XenForo_Dependencies_Admin) {
+        } elseif ($debugModeStatus['admin'] && $dependencies instanceof XenForo_Dependencies_Admin) {
             XenForo_Application::setDebugMode(true);
         }
     }
