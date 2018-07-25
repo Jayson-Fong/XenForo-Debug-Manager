@@ -13,6 +13,10 @@
 			<div class="statsBlock">
 				<label id="ctrl_debug_public"> <input type="checkbox" class="SubmitOnChange" {xen:checked {$debugStatus.public}} id="ctrl_debug_public" name="debug_public" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_public}</span> </label><br />
                 		<label id="ctrl_debug_admin"> <input type="checkbox" class="SubmitOnChange" {xen:checked {$debugStatus.admin}} id="ctrl_debug_admin" name="debug_admin" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_admin}</span> </label><br />
+                		<label id="ctrl_debug_restrict"> <input type="checkbox" class="SubmitOnChange" {xen:checked {$debugStatus.restrict}} id="ctrl_debug_restrict" name="debug_restrict" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_restrict}</span> </label>
+                		<label id="ctrl_debug_restrict_disable"> <input type="checkbox" class="SubmitOnChange" {xen:checked {$debugStatus.restrictDisable}} id="ctrl_debug_restrict_disable" name="debug_restrict_disable" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_restrict_disable}</span> </label><br />
+                		<label id="ctrl_debug_add"> <input type="checkbox" class="SubmitOnChange" id="ctrl_debug_add" name="debug_add" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_add}</span> </label>
+                		<label id="ctrl_debug_restrict_clear"> <input type="checkbox" class="SubmitOnChange" id="ctrl_debug_restrict_clear" name="debug_restrict_clear" value="1" /> <span class="label">{xen:phrase jayson_dgm_debug_clear} (<strong>{$debugStatus.ipCount}</strong>)</span> </label><br />
 			</div>
 		</div>
 	</div>
@@ -38,9 +42,13 @@
   </permissions>
   <phrases>
     <phrase title="admin_permission_modifyDebugModeState" version_id="1" version_string="1.0.0"><![CDATA[Modify Debug Mode Status]]></phrase>
+    <phrase title="jayson_dgm_debug_add" version_id="1" version_string="1.0.0"><![CDATA[Whitelist My IP]]></phrase>
     <phrase title="jayson_dgm_debug_admin" version_id="1" version_string="1.0.0"><![CDATA[Enable Debug Mode (Admin)]]></phrase>
+    <phrase title="jayson_dgm_debug_clear" version_id="1" version_string="1.0.0"><![CDATA[Clear IP Whitelist]]></phrase>
     <phrase title="jayson_dgm_debug_manager" version_id="1" version_string="1.0.0"><![CDATA[Debug Manager]]></phrase>
     <phrase title="jayson_dgm_debug_public" version_id="1" version_string="1.0.0"><![CDATA[Enable Debug Mode (Public)]]></phrase>
+    <phrase title="jayson_dgm_debug_restrict" version_id="1" version_string="1.0.0"><![CDATA[Restrict Debug Mode]]></phrase>
+    <phrase title="jayson_dgm_debug_restrict_disable" version_id="1" version_string="1.0.0"><![CDATA[Disable If Fail]]></phrase>
   </phrases>
   <route_prefixes/>
   <style_properties/>

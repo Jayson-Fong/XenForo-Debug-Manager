@@ -5,10 +5,14 @@ class jayson_DGM_Listener {
 	}
     public static function initDependencies(XenForo_Dependencies_Abstract $dependencies, array $data) {
         $debugModeStatus = XenForo_Application::getSimpleCacheData('debugModeStatus');
-        if ($debugModeStatus['public'] && $dependencies instanceof XenForo_Dependencies_Public) {
-            XenForo_Application::setDebugMode(true);
-        } elseif ($debugModeStatus['admin'] && $dependencies instanceof XenForo_Dependencies_Admin) {
-            XenForo_Application::setDebugMode(true);
+        if (!$debugModeStatus['restrict'] || in_array($_SERVER['REMOTE_ADDR'], $debugModeStatus['registeredIps'])) {
+            if ($debugModeStatus['public'] && $dependencies instanceof XenForo_Dependencies_Public) {
+                XenForo_Application::setDebugMode(true);
+            } elseif ($debugModeStatus['admin'] && $dependencies instanceof XenForo_Dependencies_Admin) {
+                XenForo_Application::setDebugMode(true);
+            }
+        } elseif ($debugModeStatus['restrictDisable']) {
+            XenForo_Application::setDebugMode(false);
         }
     }
     public static function templateHook($hookName, &$contents, array $hookParams, XenForo_Template_Abstract $template) {
